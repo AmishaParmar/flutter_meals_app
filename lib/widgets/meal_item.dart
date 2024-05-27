@@ -15,7 +15,8 @@ class MealItem extends StatelessWidget {
   }
 
   String get affordabilityText {
-    return meal.affordability.name[0].toUpperCase()+ meal.affordability.name.substring(1);
+    return meal.affordability.name[0].toUpperCase() +
+        meal.affordability.name.substring(1);
   }
 
   @override
@@ -65,7 +66,7 @@ class MealItem extends StatelessWidget {
                       height: 12,
                     ),
                     Row(
-                     mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         MealItemTrait(
                             icon: Icons.schedule,
@@ -77,13 +78,15 @@ class MealItem extends StatelessWidget {
                         const SizedBox(
                           width: 12,
                         ),
-                        MealItemTrait(icon: Icons.attach_money, label: affordabilityText),
+                        MealItemTrait(
+                            icon: Icons.attach_money, label: affordabilityText),
+                             const SizedBox(
+                          width: 12,
+                        ),
+                        Text("***************")
                       ],
                     ),
                   ],
-
-
-                  
                 ),
               ),
             ),
