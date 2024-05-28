@@ -4,16 +4,18 @@ import 'package:meals_app/screens/meal_details.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
-  const MealsScreen({super.key, this.title, required this.meals});
+  const MealsScreen({super.key, this.title, required this.meals, required this.onToggleFavourite});
 
   final String? title;
   final List<Meal> meals;
+  final void Function(Meal meal) onToggleFavourite;
 
   void selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
-          return MealDetailsScreen(meal: meal);
+          return MealDetailsScreen(meal: meal,
+          onToggleFavourite: onToggleFavourite,);
         },
       ),
     );
@@ -30,7 +32,7 @@ class MealsScreen extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headlineLarge!
-                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+                .copyWith(color: Theme.of(context).colorScheme.onSurface),
           ),
           const SizedBox(
             height: 16,
@@ -40,7 +42,7 @@ class MealsScreen extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
-                .copyWith(color: Theme.of(context).colorScheme.onBackground),
+                .copyWith(color: Theme.of(context).colorScheme.onSurface),
           ),
         ],
       ),
